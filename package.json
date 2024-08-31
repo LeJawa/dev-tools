@@ -10,6 +10,10 @@
     "categories": [
         "Other"
     ],
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/LeJawa/vsce-dev-tools.git"
+    },
     "activationEvents": [],
     "main": "./out/extension.js",
     "contributes": {
