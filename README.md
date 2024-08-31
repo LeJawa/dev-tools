@@ -1,3 +1,3 @@
-# Dev Tools
+# VS Code Extension - Dev tools
 
-This is the readme page
+A VS Code Extension with shortcuts that I find useful when coding
