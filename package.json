@@ -1,0 +1,149 @@
+{
+    "name": "dev-tools",
+    "displayName": "Dev Helper Tools",
+    "description": "Some useful tools during development",
+    "version": "0.1.0",
+    "publisher": "LeJawa",
+    "engines": {
+        "vscode": "^1.54.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [],
+    "main": "./out/extension.js",
+    "contributes": {
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "dht-tab",
+                    "title": "Dev Helper Tools",
+                    "icon": "resources/dark/rocket.png"
+                }
+            ]
+        },
+        "views": {
+            "scm": [
+                {
+                    "id": "worktree-view",
+                    "name": "Worktrees"
+                }
+            ]
+        },
+        "configuration": {
+            "type": "object",
+            "properties": {
+                "copy-extension.configFilePath": {
+                    "type": "string",
+                    "default": "./.copyrc.json",
+                    "description": "The path to the config file"
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "copy-extension.copy",
+                "title": "Copy package to Dependents"
+            },
+            {
+                "command": "worktree.open",
+                "title": "Open",
+                "icon": {
+                    "light": "resources/light/arrow-right.png",
+                    "dark": "resources/dark/arrow-right.png"
+                }
+            },
+            {
+                "command": "worktree.add",
+                "title": "Add worktree",
+                "icon": {
+                    "light": "resources/light/add.png",
+                    "dark": "resources/dark/add.png"
+                }
+            },
+            {
+                "command": "worktree.remove",
+                "title": "Remove worktree",
+                "icon": {
+                    "light": "resources/light/remove.png",
+                    "dark": "resources/dark/remove.png"
+                }
+            },
+            {
+                "command": "worktree.refresh",
+                "title": "Refresh Worktrees",
+                "icon": {
+                    "light": "resources/light/refresh.png",
+                    "dark": "resources/dark/refresh.png"
+                }
+            }
+        ],
+        "menus": {
+            "view/title": [
+                {
+                    "command": "worktree.refresh",
+                    "when": "view == worktree-view",
+                    "group": "navigation"
+                }
+            ],
+            "view/item/context": [
+                {
+                    "command": "worktree.open",
+                    "when": "view == worktree-view && viewItem == worktree",
+                    "group": "inline"
+                },
+                {
+                    "command": "worktree.add",
+                    "when": "view == worktree-view && viewItem == repo",
+                    "group": "inline"
+                },
+                {
+                    "command": "worktree.remove",
+                    "when": "view == worktree-view && viewItem == worktree",
+                    "group": "inline"
+                }
+            ],
+            "commandPalette": [
+                {
+                  "command": "worktree.open",
+                  "when": "false"
+                },
+                {
+                  "command": "worktree.add",
+                  "when": "false"
+                },
+                {
+                  "command": "worktree.remove",
+                  "when": "false"
+                },
+                {
+                  "command": "worktree.refresh",
+                  "when": "false"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "vscode-test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.7",
+        "@types/node": "20.x",
+        "@types/vscode": "^1.54.0",
+        "@typescript-eslint/eslint-plugin": "^7.14.1",
+        "@typescript-eslint/parser": "^7.11.0",
+        "@vscode/test-cli": "^0.0.9",
+        "@vscode/test-electron": "^2.4.0",
+        "eslint": "^8.57.0",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "@vscode/codicons": "^0.0.36",
+        "glob": "^11.0.0"
+    }
+}
