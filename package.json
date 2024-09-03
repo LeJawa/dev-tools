@@ -2,7 +2,7 @@
     "name": "dev-tools",
     "displayName": "Dev Helper Tools",
     "description": "Some useful tools during development",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "publisher": "LeJawa",
     "engines": {
         "vscode": "^1.54.0"
@@ -11,8 +11,8 @@
         "Other"
     ],
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/LeJawa/vsce-dev-tools.git"
+        "type": "git",
+        "url": "git+https://github.com/LeJawa/vsce-dev-tools.git"
     },
     "activationEvents": [],
     "main": "./out/extension.js",
@@ -37,7 +37,7 @@
         "configuration": {
             "type": "object",
             "properties": {
-                "copy-extension.configFilePath": {
+                "dev-tools.configFilePath": {
                     "type": "string",
                     "default": "./.copyrc.json",
                     "description": "The path to the config file"
@@ -46,8 +46,12 @@
         },
         "commands": [
             {
-                "command": "copy-extension.copy",
-                "title": "Copy package to Dependents"
+                "command": "dev-tools.copyToDependents",
+                "title": "Dev Tools: Copy package to Dependents"
+            },
+            {
+                "command": "dev-tools.copyFromDependencies",
+                "title": "Dev Tools: Update local dependencies"
             },
             {
                 "command": "worktree.open",
@@ -109,20 +113,20 @@
             ],
             "commandPalette": [
                 {
-                  "command": "worktree.open",
-                  "when": "false"
+                    "command": "worktree.open",
+                    "when": "false"
                 },
                 {
-                  "command": "worktree.add",
-                  "when": "false"
+                    "command": "worktree.add",
+                    "when": "false"
                 },
                 {
-                  "command": "worktree.remove",
-                  "when": "false"
+                    "command": "worktree.remove",
+                    "when": "false"
                 },
                 {
-                  "command": "worktree.refresh",
-                  "when": "false"
+                    "command": "worktree.refresh",
+                    "when": "false"
                 }
             ]
         }
