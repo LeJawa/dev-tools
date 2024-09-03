@@ -2,12 +2,10 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import * as fs from "fs";
-import * as path from "path";
-import { globSync } from "glob";
 import { WorktreeNode, WorktreeView } from "./worktreeView";
 import { runGitCommand } from "./commandHelper";
 import { MyDecorationProvider } from "./fileDecorator";
-import { correctToolConfig, getConfigObj, rootPath } from "./configManager";
+import { rootPath } from "./configManager";
 import { copyFromDependencies, copyToDependents } from "./copy";
 
 // This method is called when your extension is activated
